@@ -1,0 +1,10 @@
+pandas
+requests
+bs4
+matplotlib
+seaborn
+numpy
+pymysql
+SQLAlchemy
+psycopg2
+pyodbc

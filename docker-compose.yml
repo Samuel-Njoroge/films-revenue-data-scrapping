@@ -1,0 +1,53 @@
+# Configurations
+version: '3.1'
+
+services:
+
+  mysqldb:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sampassword
+      MYSQL_DATABASE: filmsdb
+      MYSQL_USER: filmsuser
+      MYSQL_PASSWORD: filmsuserpassword
+    
+    volumes:
+      - mysqldb-volume:/var/lib/mysql
+
+    ports:
+      - 3307:3306
+
+  
+  postgresdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: sampassword
+      POSTGRES_USER: filmsuser
+      POSTGRES_DB: filmsdb
+
+    volumes:
+      - postgresdb-volume:/var/lib/postgresql/data
+
+    ports:
+      - 5435:5432
+
+  sqlserverdb:
+    image: mcr.microsoft.com/mssql/server
+    restart: always
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: 'sampassword'
+
+    ports:
+      - 1435:1433
+    
+    volumes:
+      - sqlserverdb-volume:/var/opt/mssql
+  
+    
+volumes:
+  mysqldb-volume: {}
+  postgresdb-volume: {}
+  sqlserverdb-volume: {}
