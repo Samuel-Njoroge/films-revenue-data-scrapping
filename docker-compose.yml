@@ -7,10 +7,10 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: sampassword
-      MYSQL_DATABASE: filmsdb
-      MYSQL_USER: filmsuser
-      MYSQL_PASSWORD: filmsuserpassword
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
     
     volumes:
       - mysqldb-volume:/var/lib/mysql
@@ -23,9 +23,9 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_PASSWORD: sampassword
-      POSTGRES_USER: filmsuser
-      POSTGRES_DB: filmsdb
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: user
+      POSTGRES_DB: db
 
     volumes:
       - postgresdb-volume:/var/lib/postgresql/data
@@ -38,7 +38,7 @@ services:
     restart: always
     environment:
       ACCEPT_EULA: 'Y'
-      MSSQL_SA_PASSWORD: 'sampassword'
+      MSSQL_SA_PASSWORD: 'password'
 
     ports:
       - 1435:1433
